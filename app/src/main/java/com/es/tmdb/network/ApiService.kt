@@ -1,7 +1,8 @@
 package com.es.tmdb.network
 
 import com.es.tmdb.model.TrendMovies
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
+
 import retrofit2.http.GET
 import retrofit2.http.Query
 
