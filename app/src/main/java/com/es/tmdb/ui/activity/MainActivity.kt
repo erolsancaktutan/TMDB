@@ -1,12 +1,16 @@
 package com.es.tmdb.ui.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.es.tmdb.R
+import com.es.tmdb.abstracts.BaseActivity
+import com.es.tmdb.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
     }
+
+    override fun getViewBinding()= ActivityMainBinding.inflate(layoutInflater)
 }
