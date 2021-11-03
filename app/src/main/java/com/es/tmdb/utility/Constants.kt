@@ -16,7 +16,7 @@ object Constants {
         System.loadLibrary("native-lib")
     }
     private external fun getBaseURL(): String
-    private external fun getPublicApiKey(): String
+    private external fun getApiKey(): String
     val BASE_URL = getBaseURL()
-    val PUBLIC_API_KEY = getPublicApiKey()
+    val API_KEY = getApiKey()
 }
