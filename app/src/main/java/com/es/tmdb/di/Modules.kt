@@ -1,10 +1,13 @@
 package com.es.tmdb.di
 
+import android.content.Context
 import com.es.tmdb.network.ApiService
 import com.es.tmdb.utility.Constants
+import com.es.tmdb.utility.Utils
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
@@ -15,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object Modules {
     @Singleton
     @Provides
     fun provideRetrofit(): ApiService {
@@ -46,4 +49,8 @@ object NetworkModule {
 
         return retrofit.create(ApiService::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideUtil() = Utils()
 }

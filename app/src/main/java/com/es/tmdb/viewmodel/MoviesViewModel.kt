@@ -33,8 +33,6 @@ class MoviesViewModel @Inject constructor(
           .subscribe({result->
               movieArr.addAll(result.results)
               movieList().postValue(movieArr)
-          }, {
-              var b = ""
-          })
+          }, {})
     }
 }
