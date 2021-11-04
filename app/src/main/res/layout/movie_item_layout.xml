@@ -15,7 +15,7 @@
             android:id="@+id/characterImg"
             android:layout_width="76dp"
             android:layout_height="76dp"
-            app:loadImage="@{movie.poster_path}"
+            app:loadImage="@{`https://image.tmdb.org/t/p/w500`+movie.poster_path}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"

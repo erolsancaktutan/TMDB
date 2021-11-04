@@ -3,12 +3,12 @@ package com.es.tmdb.ui.activity
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.es.tmdb.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.es.tmdb.abstracts.BaseActivity
 import com.es.tmdb.databinding.ActivityMainBinding
-import com.es.tmdb.model.Movie
 import com.es.tmdb.ui.adapter.MoviesAdapter
-import com.es.tmdb.utility.DividerItemDecoration
+import com.es.tmdb.ui.fragment.DetailFragment
 import com.es.tmdb.viewmodel.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,14 +22,16 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         createMovieListAdapter()
-        setRVDivider()
+        setRVDivider(binding!!.moviesRV)
         observeMovieList()
         moviesViewModel.getTrendMovies(pageCount + 1)
     }
-
     private fun createMovieListAdapter() {
-        binding!!.moviesRV.adapter = MoviesAdapter(moviesViewModel.movieList().value!!, click = { movie ->
-
+        binding!!.moviesRV.adapter = MoviesAdapter(moviesViewModel.movieList().value!!, click = { movieId ->
+            val fragment: Fragment = DetailFragment.newInstance("result.name","profileImg,result.description")
+            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            transaction.addToBackStack("detail")
+            transaction.add(android.R.id.content, fragment).commit()
         })
     }
 
@@ -40,9 +42,4 @@ class MainActivity : BaseActivity() {
         })
     }
 
-    private fun setRVDivider() {
-        val itemDec =
-            DividerItemDecoration(this, R.drawable.divider, utils.dpToPx(32), utils.dpToPx(16))
-        binding!!.moviesRV.addItemDecoration(itemDec)
-    }
 }

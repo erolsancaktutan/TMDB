@@ -11,7 +11,7 @@ import com.es.tmdb.ui.adapter.vh.MovieVH
 
 class MoviesAdapter(
     var movieList: ArrayList<Movie>,
-    private val click: (result: Movie) -> Unit
+    private val click: (movieId: Int) -> Unit
 ) : RecyclerView.Adapter<MovieVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieVH(
@@ -25,7 +25,7 @@ class MoviesAdapter(
         val character = movieList[position]
         holder.bind(character)
         holder.itemView.setOnClickListener {
-            click(movieList[position])
+            click(movieList[position].id)
         }
     }
 

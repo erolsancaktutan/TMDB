@@ -1,4 +1,4 @@
-package com.es.tmdb.ui.adapter.vh
+package com.es.tmdb.utility
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
@@ -8,13 +8,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 
-object MoviesAdapterBinding {
+object Bindings {
     @BindingAdapter("loadImage")
     @JvmStatic
     fun loadImage(iv: ImageView, url:String ){
         Glide.with(iv.context)
             .asBitmap()
-            .load("https://image.tmdb.org/t/p/w500$url")
+            .load(url)
             .into(object : CustomTarget<Bitmap>() {
                 override fun onLoadCleared(placeholder: Drawable?) {
                 }
