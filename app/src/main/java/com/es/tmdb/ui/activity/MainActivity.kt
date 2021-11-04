@@ -26,9 +26,10 @@ class MainActivity : BaseActivity() {
         observeMovieList()
         moviesViewModel.getTrendMovies(pageCount + 1)
     }
+
     private fun createMovieListAdapter() {
         binding!!.moviesRV.adapter = MoviesAdapter(moviesViewModel.movieList().value!!, click = { movieId ->
-            val fragment: Fragment = DetailFragment.newInstance("result.name","profileImg,result.description")
+            val fragment: Fragment = DetailFragment.newInstance(movieId)
             val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
             transaction.addToBackStack("detail")
             transaction.add(android.R.id.content, fragment).commit()
