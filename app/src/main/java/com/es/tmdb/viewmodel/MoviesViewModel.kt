@@ -17,7 +17,7 @@ import javax.inject.Inject
 class MoviesViewModel @Inject constructor(
     private val moviesRepository: MoviesRepository
 ) : ViewModel() {
-    var movieArr = ArrayList<Movie>()
+    private var movieArr = ArrayList<Movie>()
     private val movies = MutableLiveData<ArrayList<Movie>>()
     private val movDetail = MutableLiveData<MovieDetail>()
 

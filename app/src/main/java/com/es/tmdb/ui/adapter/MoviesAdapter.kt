@@ -10,7 +10,7 @@ import com.es.tmdb.model.Movie
 import com.es.tmdb.ui.adapter.vh.MovieVH
 
 class MoviesAdapter(
-    var movieList: ArrayList<Movie>,
+    private var movieList: ArrayList<Movie>,
     private val click: (movieId: Int) -> Unit
 ) : RecyclerView.Adapter<MovieVH>() {
 
