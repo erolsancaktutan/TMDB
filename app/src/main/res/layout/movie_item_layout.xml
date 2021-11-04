@@ -10,8 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="2dp">
-        <ImageView
+        android:padding="16dp">
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/characterImg"
             android:layout_width="76dp"
             android:layout_height="76dp"
@@ -24,17 +24,66 @@
             app:layout_constraintVertical_bias="0" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/characterNameTV"
+            android:id="@+id/movieNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{movie.title}"
             android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="14sp"
-            android:layout_marginHorizontal="8dp"
             app:layout_constraintStart_toEndOf="@+id/characterImg"
             app:layout_constraintTop_toTopOf="@+id/characterImg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/characterImg"
-            app:layout_constraintHorizontal_bias="0"/>
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_bias="0"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/overviewTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{movie.overview}"
+            android:textColor="@color/gray"
+            android:textStyle="normal"
+            android:layout_marginEnd="12dp"
+            android:textSize="12sp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintStart_toEndOf="@+id/characterImg"
+            app:layout_constraintTop_toBottomOf="@+id/movieNameTV"
+            app:layout_constraintEnd_toStartOf="@+id/arrow"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_bias="0"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/arrow"
+            android:src="@drawable/arrow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/release_dateTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{movie.release_date}"
+            android:textColor="@color/gray"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/overviewTV"
+            app:layout_constraintEnd_toEndOf="@id/overviewTV"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintVertical_bias="1"
+            />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

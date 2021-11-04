@@ -32,7 +32,7 @@ class MoviesViewModel @Inject constructor(
           .observeOn(AndroidSchedulers.mainThread())
           .subscribe({result->
               movieArr.addAll(result.results)
-              movieList().postValue(movieArr)
+              movieList().value = movieArr
           }, {})
     }
 }

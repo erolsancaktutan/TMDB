@@ -10,7 +10,7 @@ import com.es.tmdb.model.Movie
 import com.es.tmdb.ui.adapter.vh.MovieVH
 
 class MoviesAdapter(
-    var movieList: MutableLiveData<ArrayList<Movie>>,
+    var movieList: ArrayList<Movie>,
     private val click: (result: Movie) -> Unit
 ) : RecyclerView.Adapter<MovieVH>() {
 
@@ -22,12 +22,12 @@ class MoviesAdapter(
             false))
 
     override fun onBindViewHolder(holder: MovieVH, position: Int) {
-        val character = movieList.value!![position]
+        val character = movieList[position]
         holder.bind(character)
         holder.itemView.setOnClickListener {
-            click(movieList.value!![position])
+            click(movieList[position])
         }
     }
 
-    override fun getItemCount(): Int = movieList.value!!.size
+    override fun getItemCount(): Int = movieList.size
 }

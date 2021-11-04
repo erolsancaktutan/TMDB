@@ -14,7 +14,7 @@ object MoviesAdapterBinding {
     fun loadImage(iv: ImageView, url:String ){
         Glide.with(iv.context)
             .asBitmap()
-            .load(url)
+            .load("https://image.tmdb.org/t/p/w500$url")
             .into(object : CustomTarget<Bitmap>() {
                 override fun onLoadCleared(placeholder: Drawable?) {
                 }
